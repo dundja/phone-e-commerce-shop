@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import PayPalButton from "./PayPalButton";
 
-const CartTotals = ({ context }) => {
+const CartTotals = ({ context, history }) => {
   const { cartSubtotal, cartTax, cartTotal, clearCart } = context;
 
   return (
@@ -30,6 +31,11 @@ const CartTotals = ({ context }) => {
               <span className="text-title">Total: </span>
               <strong>${cartTotal}</strong>
             </h5>
+            <PayPalButton
+              total={cartTotal}
+              clearCart={clearCart}
+              history={history}
+            />
           </div>
         </div>
       </div>
